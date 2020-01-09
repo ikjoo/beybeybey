@@ -15,5 +15,9 @@ public class MemberRegisterController {
 	public void register_get() {
 		logger.info("회원가입 화면 보여주기");
 	}
-
+	
+	@RequestMapping("/agreement.do")
+	public void agree_get() {
+		logger.info("약관");
+	}
 }
