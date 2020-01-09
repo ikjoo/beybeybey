@@ -44,8 +44,6 @@ public class ExcelServiceImpl implements ExcelService{
 			File f=new File(upPath, fileName);
 			file.transferTo(f);
 			
-			
-			
 			String ext=getExt(originFileName);
 			System.out.println("확장자명 = "+ext);
 			if(ext.equals(".xlsx")) {
