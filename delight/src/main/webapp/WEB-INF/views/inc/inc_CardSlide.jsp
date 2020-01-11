@@ -49,7 +49,7 @@
 		<div class="swiper-slide"><img src="http://ktsmemo.cdn3.cafe24.com/p/0163.jpg"></div>
 		<div class="swiper-slide"><img src="http://mabinogi.filamt.com/img/p2/0754.jpg"></div>
 		<div class="swiper-slide"><img src="http://mabinogi.filamt.com/img/p2/0001.jpg"></div>
-	</div>
+ 	</div>
 
 	<!-- 네비게이션 -->
 	<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
@@ -84,9 +84,6 @@ new Swiper('.swiper-container', {
 });
 
 </script>
-
 <!-- 예제 종료 -->
-
-
 </body>
 </html>

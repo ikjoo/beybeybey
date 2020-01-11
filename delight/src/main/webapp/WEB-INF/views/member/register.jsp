@@ -25,6 +25,8 @@
 <script type="text/javascript" src ="<c:url value = '/resources/js/jquery-3.4.1.min.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/member.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-ui.min.js'/>"></script>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+
 <!-- 스타일 적용 -->
 <style type="text/css">
 	#name{width:400px;}
@@ -72,8 +74,7 @@
 <body>
 	<div id = "title">
 		<a href="<c:url value = '#'/>">
-			<h1 style="margin-left: 3%;">Delight
-			</h1>
+			<h1 style="margin-left: 3%;">Delight</h1>
 		</a>
 	</div>
 	<div class="w3ls-main">
@@ -167,22 +168,22 @@
 			<!-- zipcode -->
 			<li>
 				<label class="w3ls-opt">우편번호</label>
-				<input type="text" name="zipcode" id = "zipcode"> 
+				<input type="text" name="zip" id = "zipcode"> 
 				
 				<!-- API연동 -->
-				<input class="price" type="button" value="우편번호 찾기">
+				<input class="price" type="button" value="우편번호 찾기" onclick="openZipSearch()">
 			</li>
 			
 			<!-- address -->
 			<li>
 				<label class="w3ls-opt">주소</label>
-				<input type="text" name="address" id = "address"> 
+				<input type="text" name="addr1" id = "address"> 
 			</li>
 			
 			<!-- addressDetail -->
 			<li>
 				<label class="w3ls-opt">상세주소</label>
-				<input type="text" name="addressDetail" id = "addressDetail"> 
+				<input type="text" name="addr2" id = "addressDetail"> 
 			</li>
 			
 			<li>

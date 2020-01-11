@@ -17,5 +17,12 @@ public class IndexController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/index2.do")
+	public String index2_get() {
+		logger.info("index2 화면 보여주기");
+		
+		return "index2";
+	}
+	
 	
 }

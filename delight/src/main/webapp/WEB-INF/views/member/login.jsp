@@ -24,7 +24,7 @@
 </script>
 
 <!-- Custom Theme files -->
-<link href="<c:url value = '/resources/css/style.css'/>" 
+<link href="<c:url value = '/resources/css/login.css'/>" 
 	rel="stylesheet" type="text/css" media="all" />
 <!-- //Custom Theme files -->
 
