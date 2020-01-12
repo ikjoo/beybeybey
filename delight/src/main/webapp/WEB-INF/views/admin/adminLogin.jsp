@@ -26,9 +26,24 @@
     <!-- End layout styles -->
   </head>
   <script type="text/javascript" src="<c:url value='/resources/js/jquery-3.4.1.min.js' />"></script>
-  <script type="text/javascript">
-  
-  </script>
+<script type="text/javascript">
+	$(function(){
+		$("#userid").focus();
+		
+		$("form[name=frm]").submit(function(){
+			if($("input[name=userid]").val()==''){
+				alert("아이디를 입력하시기 바랍니다.");
+				$("input[name=userid]").focus();
+				event.preventDefault();
+			}else if($("input[name=pwd]").val()==''){
+				alert("비밀번호를 입력하시기 바랍니다.");
+				$("input[name=pwd]").focus();
+				event.preventDefault();
+			}
+		});
+		
+	});
+</script>
   <body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -41,7 +56,7 @@
                 </div>
                 <h3 class="font-weight-bold">로그인</h3>
                 <sub class="font-weight-light">로그인 후 이용가능합니다.</sub>
-                <form class="pt-3" action="<c:url value='/admin/adminLogin.do'/>" method="post">
+                <form class="pt-3" action="<c:url value='/admin/adminLogin.do'/>" method="post" name="frm">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" 
                     placeholder="아이디" name="userid"
