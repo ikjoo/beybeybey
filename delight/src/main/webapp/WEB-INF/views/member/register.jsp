@@ -27,6 +27,18 @@
 <script type="text/javascript" src="<c:url value='/resources/js/jquery-ui.min.js'/>"></script>
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
+<script type="text/javascript">
+	$(function(){
+		$("form[name=frm]").submit(function(){
+			if($("#chkId").val()!='Y'){
+				alert("아이디 중복확인을 하세요(필수)");
+				$("#btnChkId").focus();
+				event.preventDefault();
+			}
+		});
+	});
+</script>
+
 <!-- 스타일 적용 -->
 <style type="text/css">
 	#name{width:400px;}
@@ -51,7 +63,7 @@
 	#email3Chk{width: 110px;}
 	#btnChkId{width: 90px;}
 	#emailCh{width: 200px;margin-left: 245px;}
-	#birthday{width: 250px;}
+	#birth{width: 250px;}
 	div#ui-datepicker-div {border: 1px solid gray;padding: 10px;background: white;opacity: 0.8;width: 200px;text-align: center;line-height: 2;}
 	table.ui-datepicker-calendar {margin-left: 18px;}
 </style>
@@ -80,15 +92,15 @@
 	<div class="w3ls-main">
 	<div class="w3ls-form">
 	
-<form action="<c:url value = '/member/login.do'/>" method="post" name = "frm">
+<form action="<c:url value = '/member/memberWrite.do'/>" method="post" name = "frm">
 	<h2>REGiSTER</h2> 
 		<ul class="fields1">
 			<!-- name -->
 			<li>	
 				<label class="w3ls-opt">이름</label>
 				<div class="w3ls-name">	
-					<input type="text" name="name" id = "name" 
-						placeholder="이름을 입력하세요.."/>
+					<input type="text" name="username" id = "name" 
+						placeholder="이름을 입력하세요.." required="required"/>
 				</div>
 			</li>
 			
@@ -98,7 +110,7 @@
 				<span class="w3ls-name">
 					<input type="text" name="userid" id = "userid" 
 						placeholder="아이디를 입력하세요.."/>
-				<input class="price" type="button" value="중복확인" id="btnChkId">
+				<input class="price" type="button" value="중복확인" id="btnChkId" required="required">
 				</span>
 			</li>
 			
@@ -106,8 +118,8 @@
 			<li>
 				<label class="w3ls-opt">비밀번호</label>	
 				<span class="w3ls-name">
-					<input type="password" name="pwd" id = "pwd"
-						placeholder="비밀번호를 입력하세요.."/>
+					<input type="password" name="password" id = "pwd"
+						placeholder="비밀번호를 입력하세요.." required="required"/>
 				</span>
 			</li>
 			
@@ -115,13 +127,13 @@
 				<label class="w3ls-opt">비밀번호확인</label>	
 				<span class="w3ls-name">
 					<input type="password" name="pwd2" id = "pwd2"
-						placeholder="확인 비밀번호를 입력하세요.."/>
+						placeholder="확인 비밀번호를 입력하세요.." required="required"/>
 				</span>
 			</li>
 			<li>
 				 <label class="w3ls-opt">생년월일</label>
 				 <span class="w3ls-name">
-   				 <input type="text" id="birthday" name="birthday"/>
+   				 <input type="text" id="birth" name="birth" required="required"/>
 				 </span>
 			</li>
 			
@@ -129,12 +141,12 @@
 			<li>
 				<label class="w3ls-opt">이메일</label>	
 					<input type="text" name="email1" id = "email1" 
-						placeholder="이메일을 입력해주세요"/>
+						placeholder="이메일을 입력해주세요" required="required"/>
 						<span id = "emailType">@</span>
 					
 					<!-- SELECT-OPTION -->
 					<span class="w3ls-text w3ls-name" id = "email2Chk">
-						<select id = "email2">
+						<select id = "email2" name = "email2">
 							<option value="naver.com">naver.com</option>
 							<option value="google.com">google.com</option>
 							<option value="hanmail.net">hanmail.net</option>
@@ -152,7 +164,7 @@
 			<!-- hp1,hp2,hp3 -->
 			<li>
 				<span class="w3ls-text w3ls-name" id = "hp1Chk">
-					<select id = "hp1">
+					<select id = "hp1" name = "hp1" required="required">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="019">019</option>
@@ -161,14 +173,14 @@
 				</span>
 				
 				<label class="w3ls-opt">전화번호</label>	
-					<input type="text" name="hp2" id = "hp2"/>
-					<input type="text" name="hp3" id = "hp3"/>
+					<input type="text" name="hp2" id = "hp2" required="required"/>
+					<input type="text" name="hp3" id = "hp3" required="required"/>
 			</li>
 			
 			<!-- zipcode -->
 			<li>
 				<label class="w3ls-opt">우편번호</label>
-				<input type="text" name="zip" id = "zipcode"> 
+				<input type="text" name="zipcode" id = "zipcode"> 
 				
 				<!-- API연동 -->
 				<input class="price" type="button" value="우편번호 찾기" onclick="openZipSearch()">
@@ -177,24 +189,24 @@
 			<!-- address -->
 			<li>
 				<label class="w3ls-opt">주소</label>
-				<input type="text" name="addr1" id = "address"> 
+				<input type="text" name="address" id = "address"> 
 			</li>
 			
 			<!-- addressDetail -->
 			<li>
 				<label class="w3ls-opt">상세주소</label>
-				<input type="text" name="addr2" id = "addressDetail"> 
+				<input type="text" name="address_detail" id = "addressDetail"> 
 			</li>
 			
 			<li>
 				<span class="w3ls-text w3ls-name" id = "genderChk">
 				<label class="w3ls-opt">성별</label>
-					<select id = "gender">
-						<option value="">남</option>
-						<option value="">여</option>
+					<select id = "gender" name = "gender">
+						<option value="남">남</option>
+						<option value="여">여</option>
 					</select>
 					<label class="anim" style="margin-left: 100px;"> 
-					<input type="checkbox" class="checkbox"> 
+					<input type="checkbox" class="checkbox" name = "mail_agreement"> 
 					<span style="color: white;">Email 수신여부</span>
 					</label>
 				</span>
@@ -205,8 +217,10 @@
 		<div class="w3ls-btn">
 		<input type="submit" value="회원 가입" style="font-weight: bold;">
 	</div>
-	<input type="hidden" name="chkId" id="chkId" value="N">
-	<input type="hidden" name="chkEmail" id="chkEmail" value="N">
+	
+	<!-- 중복/이메일 인증 -->
+	<input type="text" name="chkId" id="chkId" value="N">		<!-- 중복확인 -->
+	<input type="text" name="chkEmail" id="chkEmail" value="N">	<!-- email인증 -->
 </form>
 </div>
 </div>

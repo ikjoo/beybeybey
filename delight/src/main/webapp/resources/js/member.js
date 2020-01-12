@@ -2,6 +2,7 @@
  * js/member.js
  * 회원가입, 회원정보수정에서 사용
  */
+var ctx = "/delight";
 
 $(function(){
 	//이메일 - 직접입력의 경우 텍스트박스가 보이도록
@@ -15,20 +16,25 @@ $(function(){
 		}
 	});
 	
+	 $("#birth").datepicker({changeYear: true,dateFormat: "yy-mm-dd",
+	       yearRange: "1900:2020",
+	         dayNamesMin: ["일","월","화","수","목","금","토"],
+	         monthNames: ["1월","2월","3월","4월","5월","6월",
+	            "7월","8월","9월","10월","11월","12월"]});
+	
 	//중복확인 버튼 클릭- 아이디 중복확인 창 띄우기
 	$("#btnChkId").click(function(){
 		var userid=$("#userid").val();
 		
-		window.open("checkUserid.jsp?userid="+userid,"chkId",
-"width=450,height=200,left=0,top=0,location=yes,resizable=yes");
+		window.open(ctx+"/member/checkUserid.do?userid="+userid,"아이디 중복 확인",
+			"width=350,height=200,left=450,top=350,location=yes,resizable=yes");
 	});
-
-	//우편번호 찾기
+	
+	/*우편번호 찾기
 	$("#btnZipcode").click(function(){
 		window.open("../zipcode/zipcode.jsp","zip",
-"width=500,height=600,left=0,top=0,location=yes,resizable=yes");
-			
-	});
+	"width=500,height=600,left=0,top=0,location=yes,resizable=yes");
+	});*/
 });
 
 
@@ -56,9 +62,10 @@ function validate_userid(uid){
 function openZipSearch() {
 	new daum.Postcode({
 		oncomplete: function(data) {
-			$('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
-			$('[name=addr1]').val(data.address);
-			$('[name=addr2]').val(data.buildingName);
+			$('[name=zipcode]').val(data.zonecode); // 우편번호 (5자리)
+			$('[name=address]').val(data.address);
+			$('[name=address_detail]').val(data.buildingName);
 		}
 	}).open();
 }
+
