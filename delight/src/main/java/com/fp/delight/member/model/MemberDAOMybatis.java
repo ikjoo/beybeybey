@@ -6,19 +6,29 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAOMybatis implements MemberDAO{
-	private String namespace = "config.mybatis.mapper.oracle.member.";
 	
 	@Autowired
-	private SqlSessionTemplate sqlsession;
+	private SqlSessionTemplate sqlSession;
+	
+	private String namespace="config.mybatis.mapper.oracle.member.";
+
+	@Override
+	public String selectPwd(String userid) {
+		return sqlSession.selectOne(namespace+"selectPwd",userid);
+	}
+
+	@Override
+	public MemberVO selectMember(String userid) {
+		return sqlSession.selectOne(namespace+"selectMember",userid);
+	}
 	
 	public int selectDupUserid(String userid) {
-		return sqlsession.selectOne(namespace+"selectDupUserid", userid);
+		return sqlSession.selectOne(namespace+"selectDupUserid", userid);
 	}
 
 	@Override
 	public int insertMember(MemberVO memberVo) {
-		return sqlsession.insert(namespace+"insertMember", memberVo);
+		return sqlSession.insert(namespace+"insertMember", memberVo);
 	}
 
-	
 }

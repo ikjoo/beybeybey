@@ -3,37 +3,31 @@ package com.fp.delight.member.model;
 import java.sql.Timestamp;
 
 public class MemberVO {
-	private String userid;	 
-	private String username;  
+	private String userid;
+	private String username;
 	private String password;
 	private String birth;
-	private String email1; 
-	private String email2; 
-	private String hp1; 
-	private String hp2; 
+	private String email1;
+	private String email2;
+	private String hp1;
+	private String hp2;
 	private String hp3;
-	private String zipcode; 
-	private String address; 
-	private String address_detail; 
-	private String gender; 
-	private String mail_agreement;  //NN 
-	private String mail_authen; 	//DEFAULT 'N' NOT NULL - 메일인증여부 
-	private int mileagePoint; 		//DEFAULT 0 - 적립된 마일리지 
-	private Timestamp logout_date; 
-	private Timestamp join_date; 
+	private String zipcode;
+	private String address;
+	private String address_detail;
+	private String gender;
+	private String mail_agreement;
+	private String mail_authen;
+	private int mileagePoint;
+	private Timestamp logout_date;
+	private Timestamp join_date;
 	private Timestamp out_date;
-	private int out_reason_no; 
-	private int grade_seq; 
-	private String grade_name; //DEFAULT 'b' - 회원별 등급이름 
-	
+	private int out_reason_no;
+	private int grade_seq;
+	private String grade_name;
+
 	public String getUserid() {
 		return userid;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
@@ -49,6 +43,12 @@ public class MemberVO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getEmail1() {
 		return email1;
@@ -158,7 +158,6 @@ public class MemberVO {
 	public void setGrade_name(String grade_name) {
 		this.grade_name = grade_name;
 	}
-	
 	@Override
 	public String toString() {
 		return "MemberVO [userid=" + userid + ", username=" + username + ", password=" + password + ", birth=" + birth
@@ -168,4 +167,5 @@ public class MemberVO {
 				+ mileagePoint + ", logout_date=" + logout_date + ", join_date=" + join_date + ", out_date=" + out_date
 				+ ", out_reason_no=" + out_reason_no + ", grade_seq=" + grade_seq + ", grade_name=" + grade_name + "]";
 	}
+
 }

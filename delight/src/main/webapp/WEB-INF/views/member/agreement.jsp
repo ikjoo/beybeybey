@@ -6,7 +6,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="<c:url value='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' />">
-<style type="text/css">
+<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.4.1.min.js' />"></script>
+<style type="text/css"> 
 	body{
 		 margin-left: 28%;
    		 margin-right: 40%;
@@ -24,6 +25,26 @@
 		text-align: center;
 	}
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("#chkAll").click(function(){
+			$("#agree #chkAgree").prop("checked",this.checked);
+		});
+		
+		$("#agree form[name=frmAgree]").submit(function(){
+			 if(!$(".agree1").is(":checked")){
+				alert("약관에 동의하셔야합니다.");
+				$(".agree1").focus();
+				event.preventDefault();
+			 }else if(!$(".agree2").is(":checked")){
+				alert("약관에 동의하셔야합니다.");
+				$(".agree2").focus();
+				event.preventDefault();
+			 }
+			
+		});
+	});
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -32,18 +53,18 @@
 <article id="agree">
 	<h2 style="color: white;">회원 약관</h2>
 	<div class="divChk">
-			<input type="checkbox" name="chkAgree" id="chkAgree">
+			<input type="checkbox" name="chkAll" id="chkAll">
 			<label for="chkAgree" style="color: white;">이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</label>
 	</div>
 	<iframe style="background: white;" src='<c:url value="/agree/provision2.html"/>' width="800" height="400"></iframe>
 	<div class="divChk" style="margin-left: 78%;">
-			<input type="checkbox" name="chkAgree" id="chkAgree">
+			<input type="checkbox" name="chkAgree" id="chkAgree" class="agree1">
 			<label for="chkAgree" style="color: white;">약관에 동의합니다.</label>
 	</div>
 	<iframe style="background: white;" src='<c:url value="/agree/provision3.html"/>' width="800" height="400"></iframe>
 	<form name="frmAgree" method="post" action='<c:url value="/member/register.do"/>'>
 		<div class="divChk">
-			<input type="checkbox" name="chkAgree" id="chkAgree">
+			<input type="checkbox" name="chkAgree" id="chkAgree" class="agree2">
 			<label for="chkAgree" style="color: white;">약관에 동의합니다.</label>
 		</div>
 		<div style="margin-top: 15px;">

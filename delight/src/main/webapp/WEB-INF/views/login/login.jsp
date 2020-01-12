@@ -11,7 +11,28 @@
 			Flat Web Templates, Login sign up Responsive web template, 
 				SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, 
 					SonyEricsson, Motorola web design" />
-
+<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.4.1.min.js' />"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#userid").focus();
+		
+		$("form[name=frm]").submit(function(){
+			$(".infobox").each(function(idx, item){
+				if($(this).val().length<1){
+					var str=$(this).prev().html();
+					if(str==null || str==''){
+						str=$(this).attr("title");						
+					} 
+					alert(str+"를 입력하세요");
+					$(this).focus();
+					event.preventDefault();
+					return false;
+				}
+			});	
+		});
+		
+	});
+</script>
 <script type="application/x-javascript">
 	 /* 이 부분은 건들지 말아주세요. */
 	 addEventListener("load", function() { 
@@ -21,8 +42,7 @@
 	 function hideURLbar(){ 
 		 window.scrollTo(0,1); 
 	 } 
-</script>
-
+</script> 
 <!-- Custom Theme files -->
 <link href="<c:url value = '/resources/css/login.css'/>" 
 	rel="stylesheet" type="text/css" media="all" />
@@ -49,16 +69,20 @@
 							<div class="login-agileits-top">
 								
 								<!-- form <-> action -->
-								<form action="<c:url value = '#'/>" method="post" name = "frm">
+								<form action="<c:url value = '/login/login.do'/>" method="post" name = "frm">
 									<p>아이디</p>
-									<input type="text" class="userid" name="userid"/>
+									<input type="text" class="infobox" name="userid" id="userid" value="${cookie.ck_userid.value }" />
 									
 									<p>비밀번호</p>
-									<input type="password" class="pwd" name="pwd" /> 
+									<input type="password" class="infobox" name="password" id="pwd"/> 
 									
 									<!-- 변경해야함 -->
 									<label class="anim"> 
-										<input type="checkbox" class="checkbox" name = "chkSave" id = "chkSave"> 
+										<input type="checkbox" class="checkbox" name = "chkSave" id = "chkSave"
+										<c:if test="${!empty cookie.ck_userid }">
+										checked="checked"
+										</c:if>
+										>  
 										<span>아이디 저장</span>
 									</label>
 									<!-- 변경 ▲ --> 
@@ -70,8 +94,8 @@
 						<div class="login-agileits-bottom wthree">
 							<h6>
 								<a href="<c:url value = '/member/register.do'/>">회원가입</a> |
-								<a href="<c:url value = '#'/>">아이디 찾기</a> |
-								<a href="<c:url value = '#'/>">비밀번호 찾기</a>
+								<a href="<c:url value = '/login/findId.do'/>">아이디 찾기</a> |
+								<a href="<c:url value = '/login/findPwd.do'/>">비밀번호 찾기</a>
 							</h6>
 						</div>
 					</div>
