@@ -14,18 +14,17 @@ public class MemberVO {
 	private String hp3;
 	private String zipcode;
 	private String address;
-	private String address_detail;
+	private String addressDetail;
 	private String gender;
-	private String mail_agreement;
-	private String mail_authen;
+	private String mailAgreement;
+	private String mailAuthen;
 	private int mileagePoint;
-	private Timestamp logout_date;
-	private Timestamp join_date;
-	private Timestamp out_date;
-	private int out_reason_no;
-	private int grade_seq;
-	private String grade_name;
-
+	private Timestamp logoutDate;
+	private Timestamp joinDate;
+	private Timestamp outDate;
+	private int outReasonNo;
+	private int gradeSeq;
+	private String gradeName;
 	public String getUserid() {
 		return userid;
 	}
@@ -92,11 +91,11 @@ public class MemberVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getAddress_detail() {
-		return address_detail;
+	public String getAddressDetail() {
+		return addressDetail;
 	}
-	public void setAddress_detail(String address_detail) {
-		this.address_detail = address_detail;
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 	public String getGender() {
 		return gender;
@@ -104,17 +103,17 @@ public class MemberVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getMail_agreement() {
-		return mail_agreement;
+	public String getMailAgreement() {
+		return mailAgreement;
 	}
-	public void setMail_agreement(String mail_agreement) {
-		this.mail_agreement = mail_agreement;
+	public void setMailAgreement(String mailAgreement) {
+		this.mailAgreement = mailAgreement;
 	}
-	public String getMail_authen() {
-		return mail_authen;
+	public String getMailAuthen() {
+		return mailAuthen;
 	}
-	public void setMail_authen(String mail_authen) {
-		this.mail_authen = mail_authen;
+	public void setMailAuthen(String mailAuthen) {
+		this.mailAuthen = mailAuthen;
 	}
 	public int getMileagePoint() {
 		return mileagePoint;
@@ -122,50 +121,51 @@ public class MemberVO {
 	public void setMileagePoint(int mileagePoint) {
 		this.mileagePoint = mileagePoint;
 	}
-	public Timestamp getLogout_date() {
-		return logout_date;
+	public Timestamp getLogoutDate() {
+		return logoutDate;
 	}
-	public void setLogout_date(Timestamp logout_date) {
-		this.logout_date = logout_date;
+	public void setLogoutDate(Timestamp logoutDate) {
+		this.logoutDate = logoutDate;
 	}
-	public Timestamp getJoin_date() {
-		return join_date;
+	public Timestamp getJoinDate() {
+		return joinDate;
 	}
-	public void setJoin_date(Timestamp join_date) {
-		this.join_date = join_date;
+	public void setJoinDate(Timestamp joinDate) {
+		this.joinDate = joinDate;
 	}
-	public Timestamp getOut_date() {
-		return out_date;
+	public Timestamp getOutDate() {
+		return outDate;
 	}
-	public void setOut_date(Timestamp out_date) {
-		this.out_date = out_date;
+	public void setOutDate(Timestamp outDate) {
+		this.outDate = outDate;
 	}
-	public int getOut_reason_no() {
-		return out_reason_no;
+	public int getOutReasonNo() {
+		return outReasonNo;
 	}
-	public void setOut_reason_no(int out_reason_no) {
-		this.out_reason_no = out_reason_no;
+	public void setOutReasonNo(int outReasonNo) {
+		this.outReasonNo = outReasonNo;
 	}
-	public int getGrade_seq() {
-		return grade_seq;
+	public int getGradeSeq() {
+		return gradeSeq;
 	}
-	public void setGrade_seq(int grade_seq) {
-		this.grade_seq = grade_seq;
+	public void setGradeSeq(int gradeSeq) {
+		this.gradeSeq = gradeSeq;
 	}
-	public String getGrade_name() {
-		return grade_name;
+	public String getGradeName() {
+		return gradeName;
 	}
-	public void setGrade_name(String grade_name) {
-		this.grade_name = grade_name;
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
 	}
 	@Override
 	public String toString() {
 		return "MemberVO [userid=" + userid + ", username=" + username + ", password=" + password + ", birth=" + birth
 				+ ", email1=" + email1 + ", email2=" + email2 + ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3
-				+ ", zipcode=" + zipcode + ", address=" + address + ", address_detail=" + address_detail + ", gender="
-				+ gender + ", mail_agreement=" + mail_agreement + ", mail_authen=" + mail_authen + ", mileagePoint="
-				+ mileagePoint + ", logout_date=" + logout_date + ", join_date=" + join_date + ", out_date=" + out_date
-				+ ", out_reason_no=" + out_reason_no + ", grade_seq=" + grade_seq + ", grade_name=" + grade_name + "]";
+				+ ", zipcode=" + zipcode + ", address=" + address + ", addressDetail=" + addressDetail + ", gender="
+				+ gender + ", mailAgreement=" + mailAgreement + ", mailAuthen=" + mailAuthen + ", mileagePoint="
+				+ mileagePoint + ", logoutDate=" + logoutDate + ", joinDate=" + joinDate + ", outDate=" + outDate
+				+ ", outReasonNo=" + outReasonNo + ", gradeSeq=" + gradeSeq + ", gradeName=" + gradeName + "]";
 	}
 
+	
 }

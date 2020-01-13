@@ -34,9 +34,9 @@ public class MemberController {
 		logger.info("회원가입 화면, 파라미터 memberVo={}", memberVo);
 	
 		if(mail_agreement!=null && !mail_agreement.isEmpty()) {
-			memberVo.setMail_agreement("Y"); 
+			memberVo.setMailAgreement("Y"); 
 		}else if(mail_agreement==null || mail_agreement.isEmpty()){
-			memberVo.setMail_agreement("N");
+			memberVo.setMailAgreement("N");
 		}
 		
 		String hp1 = memberVo.getHp1();
