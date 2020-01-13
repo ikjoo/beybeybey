@@ -19,7 +19,7 @@
 		insert into tbl_user(userid, username, password, birth, email1, email2, hp1, hp2, 
 			hp3, zipcode, address, address_detail, gender, mail_agreement) <!-- , mail_authen -->
 		values(#{userid}, #{username}, #{password}, #{birth}, #{email1}, #{email2}, #{hp1}, #{hp2}, 
-		#{hp3}, #{zipcode}, #{address}, #{address_detail}, #{gender}, #{mail_agreement}) <!--, #{mail_authen}-->
+		#{hp3}, #{zipcode}, #{address}, #{addressDetail}, #{gender}, #{mailAgreement}) <!--, #{mail_authen}-->
 	</insert>	
 	
 	<!-- 중복 체크 -->

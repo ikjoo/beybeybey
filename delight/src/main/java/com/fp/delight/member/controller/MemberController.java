@@ -28,14 +28,14 @@ public class MemberController {
 	
 	@RequestMapping("/memberWrite.do")
 	public String memberWrite(@ModelAttribute MemberVO memberVo, String email3,
-			Model model, @RequestParam(required = false)String mail_agreement) {
+			Model model, @RequestParam(required = false)String mailAgreement) {
 		int result = 0;
 		
 		logger.info("회원가입 화면, 파라미터 memberVo={}", memberVo);
 	
-		if(mail_agreement!=null && !mail_agreement.isEmpty()) {
+		if(mailAgreement!=null && !mailAgreement.isEmpty()) {
 			memberVo.setMailAgreement("Y"); 
-		}else if(mail_agreement==null || mail_agreement.isEmpty()){
+		}else if(mailAgreement==null || mailAgreement.isEmpty()){
 			memberVo.setMailAgreement("N");
 		}
 		

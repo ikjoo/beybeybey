@@ -68,6 +68,7 @@ $(function(){
 				$("#btnChkId").attr("disabled","disabled");	//중복체크 불가능
 			}else {
 				$("#accordanceId").hide();
+				$("#btnChkId").removeAttr("disabled");
 			}
 		}else if(userid.length==''){
 			$("#accordanceId").hide();
@@ -111,7 +112,7 @@ function openZipSearch() {
 		oncomplete: function(data) {
 			$('[name=zipcode]').val(data.zonecode); // 우편번호 (5자리)
 			$('[name=address]').val(data.address);
-			$('[name=address_detail]').val(data.buildingName);
+			$('[name=addressDetail]').val(data.buildingName);
 		}
 	}).open();
 }
