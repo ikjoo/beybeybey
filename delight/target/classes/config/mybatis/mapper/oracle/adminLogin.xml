@@ -4,6 +4,14 @@
 
 <mapper namespace="com.mybatis.mapper.delight.adminLogin">
 	
+	<select id="adminPwd" resultType="string" parameterType="string">
+		select password from tbl_user where grade_name='admin' and userid=#{userid}
+	</select>
+	
+	<select id="selectAdmin" resultType="memberVo" parameterType="string">
+		select * from tbl_user where grade_name='admin' and userid=#{userid}
+	</select>
+	
 </mapper>
 
 
