@@ -21,7 +21,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.info("컨트롤러 수행 전 먼저 호출 - preHandle()");
-		
+		//잠깐만
 		HttpSession session=request.getSession();
 		String userid=(String) session.getAttribute("userid");
 		if(userid==null || userid.isEmpty()) {
