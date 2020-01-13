@@ -74,7 +74,7 @@ $(function(){
 			$("#accordanceId").hide();
 		}
 	});
-	
+	 
 	//폼 submit시 중복확인 체크. 
 	$("form[name=frm]").submit(function(){
 		if($("#chkId").val()!='Y'){

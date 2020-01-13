@@ -6,14 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/performance")
 public class PerformentController {
 	private final Logger logger
 		= LoggerFactory.getLogger(PerformentController.class);
 
-	@RequestMapping("")
-	public String performentList() {
+	@RequestMapping("pfDetail.do")
+	public void performentList() {
 		logger.info("공연 API, 공연목록 데이터 출력!");
 	
-		return null;
 	}
 }
