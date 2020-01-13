@@ -1,4 +1,4 @@
-package com.fp.delight.member.login.controller;
+package com.fp.delight.common;
 
 import java.io.PrintWriter;
 

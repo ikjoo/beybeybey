@@ -16,11 +16,14 @@ $(function(){
 		}
 	});
 	
-	 $("#birth").datepicker({changeYear: true,dateFormat: "yy-mm-dd",
+	
+	//생년월일 Date Picker UI사용
+	$("#birth").datepicker({changeYear: true,dateFormat: "yy-mm-dd",
 	       yearRange: "1900:2020",
 	         dayNamesMin: ["일","월","화","수","목","금","토"],
 	         monthNames: ["1월","2월","3월","4월","5월","6월",
 	            "7월","8월","9월","10월","11월","12월"]});
+	
 	
 	//중복확인 버튼 클릭- 아이디 중복확인 창 띄우기
 	$("#btnChkId").click(function(){
@@ -30,13 +33,57 @@ $(function(){
 			"width=350,height=200,left=450,top=350,location=yes,resizable=yes");
 	});
 	
-	/*우편번호 찾기
-	$("#btnZipcode").click(function(){
-		window.open("../zipcode/zipcode.jsp","zip",
-	"width=500,height=600,left=0,top=0,location=yes,resizable=yes");
-	});*/
-});
+	
+	//비밀번호 중복 체크 
+	$("#accordancePwd").hide();
+	$("#discordPwd").hide();
+	//아이디 정규식
+	$("#accordanceId").hide();
+	
+	$("input").keyup(function(){
+		var pwd1=$("#pwd").val();
+		var pwd2=$("#pwd2").val();
+		var userid=$("#userid").val();
+		
+		if(pwd1!="" || pwd2!=""){
+			if(pwd1==pwd2){
+				$("#accordancePwd").show();
+				$("#discordPwd").hide();
+				$("#submit").removeAttr("disabled");
+			}else {
+				$("#accordancePwd").hide();
+				$("#discordPwd").show();
+				$("#submit").attr("disabled","disabled");
+			}
+		}else {	//공백일시
+			$("#accordancePwd").hide();
+			$("#discordPwd").hide();
+			$("#submit").removeAttr("disabled");
+		}
+		
+		//아이디 정규식
+		if(userid.length!=''){
+			if(!validate_usid($("#userid").val())){
+				$("#accordanceId").show();
+				$("#btnChkId").attr("disabled","disabled");	//중복체크 불가능
+			}else {
+				$("#accordanceId").hide();
+			}
+		}else if(userid.length==''){
+			$("#accordanceId").hide();
+		}
+	});
+	
+	//폼 submit시 중복확인 체크. 
+	$("form[name=frm]").submit(function(){
+		if($("#chkId").val()!='Y'){
+			alert("아이디 중복확인을 하세요(필수)");
+			$("#btnChkId").focus();
+			event.preventDefault();
+		}
+	});
 
+});
 
 function validate_phone(ph){
 	 var pattern=new RegExp(/^[0-9]*$/g);
@@ -67,5 +114,12 @@ function openZipSearch() {
 			$('[name=address_detail]').val(data.buildingName);
 		}
 	}).open();
+}
+
+//정규식(ID)
+function validate_usid(userid){
+	var idReg = new RegExp(/^[A-za-z0-9]{5,15}$/g);
+	return idReg.test(userid);
+	//영문 대문자 또는 소문자 또는 숫자로 시작하는 아이디, 끝날때 영문 대문자 또는 소문자 또는 숫자
 }
 

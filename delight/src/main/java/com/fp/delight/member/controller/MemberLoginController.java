@@ -1,4 +1,4 @@
-package com.fp.delight.member.login.controller;
+package com.fp.delight.member.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

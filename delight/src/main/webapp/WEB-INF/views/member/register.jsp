@@ -28,24 +28,16 @@
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 <script type="text/javascript">
-	$(function(){
-		$("form[name=frm]").submit(function(){
-			if($("#chkId").val()!='Y'){
-				alert("아이디 중복확인을 하세요(필수)");
-				$("#btnChkId").focus();
-				event.preventDefault();
-			}
-		});
-	});
+	
 </script>
 
 <!-- 스타일 적용 -->
 <style type="text/css">
-	#name{width:400px;}
-	#userid{width:400px;}
+	#name{width:400px; text-transform: lowercase;}
+	#userid{width:400px; text-transform: lowercase;}
 	#pwd{width:400px;}
 	#pwd2{width:400px;}
-	#email1{width:200px;}
+	#email1{width:200px; text-transform: lowercase;}
 	#email2{width:200px;}
 	#emailType{color:silver;}
 	#email2Chk{width:100px;}
@@ -54,7 +46,7 @@
 	#hp1{width: 80px;}
 	#hp2{width: 90px;margin-left:30px;}
 	#hp3{width: 90px;}
-	#email3{width: 110px;margin-left: 52px;}
+	#email3{width: 110px;margin-left: 52px; text-transform: lowercase;}
 	#zipcode{width: 150px;}
 	#zipcodeChk{width: 400px;display: inline-block;margin-left: -125px;}
 	#address{width: 400px;}
@@ -64,8 +56,13 @@
 	#btnChkId{width: 90px;}
 	#emailCh{width: 200px;margin-left: 245px;}
 	#birth{width: 250px;}
+	span#accordancePwd {margin-left: 245px; font-weight: bold; }
+	span#discordPwd {margin-left: 245px; font-weight: bold; }
+	#accordanceId{margin-left: 245px; font-weight: bold;}
 	div#ui-datepicker-div {border: 1px solid gray;padding: 10px;background: white;opacity: 0.8;width: 200px;text-align: center;line-height: 2;}
 	table.ui-datepicker-calendar {margin-left: 18px;}
+	li.check_li {position: absolute;top: 23em;}
+	li.check_li2{position: absolute;top: 31.7em;}
 </style>
 
 <!--style_sheet-->
@@ -85,7 +82,7 @@
 
 <body>
 	<div id = "title">
-		<a href="<c:url value = '#'/>">
+		<a href="<c:url value = '/index.do'/>">
 			<h1 style="margin-left: 3%;">Delight</h1>
 		</a>
 	</div>
@@ -109,9 +106,15 @@
 				<label class="w3ls-opt">아이디</label>	
 				<span class="w3ls-name">
 					<input type="text" name="userid" id = "userid" 
-						placeholder="아이디를 입력하세요.."/>
-				<input class="price" type="button" value="중복확인" id="btnChkId" required="required">
+						placeholder="아이디를 입력하세요.." maxlength="15"/>
+					<input class="price" type="button" value="중복확인" id="btnChkId" 
+						 oninvalid="this.setCustomValidity('아이디는 반드시 입력되어야 합니다!')" required>
 				</span>
+				<li class="check_li">
+					<span class = "w3ls-name" id="accordanceId" stlye="color:red">
+						아이디는 영문대소문자,숫자로 시작하는 문자열만 가능합니다!
+					</span> 
+				</li>
 			</li>
 			
 			<!-- pwd -->
@@ -119,17 +122,23 @@
 				<label class="w3ls-opt">비밀번호</label>	
 				<span class="w3ls-name">
 					<input type="password" name="password" id = "pwd"
-						placeholder="비밀번호를 입력하세요.." required="required"/>
+						placeholder="비밀번호를 입력하세요.." required/>
 				</span>
 			</li>
 			
 			<li>
 				<label class="w3ls-opt">비밀번호확인</label>	
 				<span class="w3ls-name">
-					<input type="password" name="pwd2" id = "pwd2"
-						placeholder="확인 비밀번호를 입력하세요.." required="required"/>
+					<input type="password" name="password2" id = "pwd2"
+						placeholder="비밀번호를 입력하세요.." required="required"/>
 				</span>
+				
+				<li class = "check_li2">
+					<span class = "w3ls-name" id="accordancePwd">비밀번호가 일치합니다.</span> 
+					<span class = "w3ls-name" id="discordPwd">비밀번호가 일치하지 않습니다.</span>
+				</li>
 			</li>
+			
 			<li>
 				 <label class="w3ls-opt">생년월일</label>
 				 <span class="w3ls-name">
@@ -215,12 +224,12 @@
 		
 		<div class="clear"></div>
 		<div class="w3ls-btn">
-		<input type="submit" value="회원 가입" style="font-weight: bold;">
+		<input type="submit" id = "submit" value="회원 가입" style="font-weight: bold;">
 	</div>
 	
 	<!-- 중복/이메일 인증 -->
-	<input type="text" name="chkId" id="chkId" value="N">		<!-- 중복확인 -->
-	<input type="text" name="chkEmail" id="chkEmail" value="N">	<!-- email인증 -->
+	<input type="hidden" name="chkId" id="chkId" value="N">			<!-- 중복확인 -->
+	<input type="hidden" name="chkEmail" id="chkEmail" value="N">	<!-- email인증 -->
 </form>
 </div>
 </div>

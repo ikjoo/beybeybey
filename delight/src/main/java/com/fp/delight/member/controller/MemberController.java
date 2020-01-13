@@ -1,4 +1,4 @@
-package com.fp.delight.member.register.controller;
+package com.fp.delight.member.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +14,9 @@ import com.fp.delight.member.model.MemberVO;
 
 @Controller
 @RequestMapping("/member")
-public class MemberRegisterController {
+public class MemberController {
 	private static final Logger logger
-		= LoggerFactory.getLogger(MemberRegisterController.class);
+		= LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
 	private MemberService memberService;
@@ -37,17 +37,6 @@ public class MemberRegisterController {
 			memberVo.setMail_agreement("Y"); 
 		}else if(mail_agreement==null || mail_agreement.isEmpty()){
 			memberVo.setMail_agreement("N");
-		}
-		
-		String zipcode = memberVo.getZipcode();
-		String address = memberVo.getAddress();
-		String address_detail = memberVo.getAddress_detail();
-		
-		if(zipcode==null || zipcode.isEmpty() || address==null || address.isEmpty() ||
-				address_detail==null || address_detail.isEmpty()) {
-			memberVo.setZipcode("");
-			memberVo.setAddress("");
-			memberVo.setAddress_detail("");
 		}
 		
 		String hp1 = memberVo.getHp1();
