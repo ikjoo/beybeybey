@@ -97,7 +97,7 @@
 				<label class="w3ls-opt">이름</label>
 				<div class="w3ls-name">	
 					<input type="text" name="username" id = "name" 
-						placeholder="이름을 입력하세요.." required="required"/>
+						placeholder="이름을 입력하세요.." required="required" maxlength="30"/>
 				</div>
 			</li>
 			
@@ -122,7 +122,7 @@
 				<label class="w3ls-opt">비밀번호</label>	
 				<span class="w3ls-name">
 					<input type="password" name="password" id = "pwd"
-						placeholder="비밀번호를 입력하세요.." required/>
+						placeholder="비밀번호를 입력하세요.." maxlength="15" required />
 				</span>
 			</li>
 			
@@ -130,7 +130,7 @@
 				<label class="w3ls-opt">비밀번호확인</label>	
 				<span class="w3ls-name">
 					<input type="password" name="password2" id = "pwd2"
-						placeholder="비밀번호를 입력하세요.." required="required"/>
+						placeholder="비밀번호를 입력하세요.." maxlength="15" required="required"/>
 				</span>
 				
 				<li class = "check_li2">
@@ -182,8 +182,8 @@
 				</span>
 				
 				<label class="w3ls-opt">전화번호</label>	
-					<input type="text" name="hp2" id = "hp2" required="required"/>
-					<input type="text" name="hp3" id = "hp3" required="required"/>
+					<input type="text" name="hp2" id = "hp2" required="required" maxlength="4"/>
+					<input type="text" name="hp3" id = "hp3" required="required" maxlength="4"/>
 			</li>
 			
 			<!-- zipcode -->
@@ -204,7 +204,7 @@
 			<!-- addressDetail -->
 			<li>
 				<label class="w3ls-opt">상세주소</label>
-				<input type="text" name="address_detail" id = "addressDetail"> 
+				<input type="text" name="addressDetail" id = "addressDetail"> 
 			</li>
 			
 			<li>
@@ -215,7 +215,7 @@
 						<option value="여">여</option>
 					</select>
 					<label class="anim" style="margin-left: 100px;"> 
-					<input type="checkbox" class="checkbox" name = "mail_agreement"> 
+					<input type="checkbox" class="checkbox" name = "mailAgreement"> 
 					<span style="color: white;">Email 수신여부</span>
 					</label>
 				</span>
