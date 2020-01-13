@@ -1,5 +1,7 @@
 package com.fp.delight.admin.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +49,16 @@ public class AnnController {
 		
 		return "common/message";
 		
+	}
+	
+	@RequestMapping("/adminLogout.do")
+	public String adminLogout(HttpSession session) {
+		String userid=(String) session.getAttribute("adminUserid");
+		
+		logger.info("관리자 로그아웃, 파라미터 userid={}", userid);
+		
+		session.removeAttribute("adminUserid");
+		
+		return "redirect:/admin/adminLogin.do";
 	}
 }
