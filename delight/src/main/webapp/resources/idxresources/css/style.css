@@ -2177,6 +2177,10 @@ div#q2 {
     width: 100%;
     text-align: center;
 }
+div#q2 p{
+	margin: 5px;
+	
+}
 button#topLogin {
     width: 75%;
     margin-left: 1%;

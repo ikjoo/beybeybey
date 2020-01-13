@@ -79,10 +79,10 @@
 			<c:if test="${!empty sessionScope.userid }">
 				<br>
 				<div id="q2" style="color: white;">
-					<p>${memberVo.username }님 어서오세요.</p><br>
-					<p>마일리지 : <fmt:formatNumber value="${memberVo.mileagePoint }" pattern="#,###" /> 원</p>
-					<p>멤버십 등급 : ${memberVo.gradeName }</p>
-					<p>가입일 : <fmt:formatDate value="${memberVo.joinDate }" pattern="yyyy-MM-dd"/></p>
+					<p><span style="font-weight: bold;font-size: 1.4em;">*${memberVo.username }</span> 님 어서오세요.</p><br>
+					<p>*마일리지 : <fmt:formatNumber value="${memberVo.mileagePoint }" pattern="#,###" /> 원</p>
+					<p>*멤버십 등급 : ${memberVo.gradeName }</p>
+					<p>*가입일 : <fmt:formatDate value="${memberVo.joinDate }" pattern="yyyy-MM-dd"/></p>
 				</div>
 				<div id="q1">
 					<button type="button" class="btn btn-success btn-lg"
